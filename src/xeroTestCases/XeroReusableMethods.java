@@ -18,16 +18,22 @@ public class XeroReusableMethods {
 	static ExtentTest logger;
 	static ExtentReports report;
 	static WebDriver driver;
-		
+	
+	//initializing a webdriver manager
 	public void InitializeDriver() {
 	WebDriverManager.chromedriver().setup();	
 	driver = new ChromeDriver();			
-	}
+	}	
+	
 	public static void OpenUrl(String url) {
 		driver.get(url);
 		driver.manage().window().maximize();
 	}
-
+	public static void login() {		
+		OpenUrl("https://login.salesforce.com/");
+		
+	}
+	
 	public static void CloseBrowser() {
 		driver.quit();
 	}
@@ -56,8 +62,8 @@ public class XeroReusableMethods {
 	 *                      text    --->to be entered 
 	 *                      objName --->object name
 	 *  createdby        :  Automation team 
-	 *  created date     :  14/02/20209 
-	 *  LastModified Date:  14/02/2020          
+	 *  created date     :  21/03/2020
+	 *  LastModified Date:  21/03/2020          
 	 */
 	public static void EnterText(WebElement element, String text, String objName) {
 		if (element == null || !element.isDisplayed()) {
